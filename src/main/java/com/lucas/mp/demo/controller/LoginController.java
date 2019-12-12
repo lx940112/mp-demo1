@@ -3,6 +3,7 @@ package com.lucas.mp.demo.controller;
 import com.lucas.mp.demo.dto.ActiveUser;
 import com.lucas.mp.demo.dto.UserLoginDTO;
 import com.lucas.mp.demo.entity.SysFunc;
+import com.lucas.mp.demo.enums.FuncTypeEnum;
 import com.lucas.mp.demo.service.SysFuncService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +40,7 @@ public class LoginController {
         subject.login(token);
 
         ActiveUser activeUser = (ActiveUser) subject.getPrincipal();
-        List<SysFunc> menus = sysFuncService.getMenus(activeUser);
+        List<SysFunc> menus = sysFuncService.getMenus(activeUser, FuncTypeEnum.MENU.value());
 
         // System.err.println("this is user login method，hello ：" + userLoginDTO.getUsername() + ".!");
         // return "this is user login method，hello ：" + userLoginDTO.getUsername() + "!";
