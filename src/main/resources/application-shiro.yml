@@ -1,0 +1,4 @@
+shiro:
+  loginUrl: /auth/toLogin
+  unauthorizedUrl: /page/403
+

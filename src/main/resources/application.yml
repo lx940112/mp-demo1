@@ -1,0 +1,33 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: mp-demo
+  profiles:
+    include: mybatis-plus,shiro
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/shiro_demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: root
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet.enabled: true
+      stat-view-servlet.url-pattern: /druid/*
+      filter.stat.log-slow-sql: true
+      filter.stat.slow-sql-millis: 1000
+      filter.stat.merge-sql: false

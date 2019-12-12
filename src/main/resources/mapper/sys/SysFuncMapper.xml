@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucas.mp.demo.dao.SysFuncDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lucas.mp.demo.entity.SysFunc">
+        <id column="id" property="id" />
+        <result column="func_code" property="funcCode" />
+        <result column="func_name" property="funcName" />
+        <result column="parent_id" property="parentId" />
+        <result column="func_desc" property="funcDesc" />
+        <result column="func_method" property="funcMethod" />
+        <result column="func_url" property="funcUrl" />
+        <result column="func_icon" property="funcIcon" />
+        <result column="remark" property="remark" />
+        <result column="func_type" property="funcType" />
+        <result column="auth_level" property="authLevel" />
+        <result column="del_flag" property="delFlag" />
+        <result column="sort" property="sort" />
+        <result column="target" property="target" />
+        <result column="create_user" property="createUser" />
+        <result column="create_time" property="createTime" />
+        <result column="update_user" property="updateUser" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <select id="selectFunctionIds" resultType="java.lang.Long">
+        SELECT DISTINCT
+            func_id
+        FROM
+            sys_role_func
+        WHERE
+            role_id IN (
+                SELECT DISTINCT
+                    role_id
+                FROM
+                    sys_role_user
+                WHERE
+                    user_id = #{userId}
+            )
+    </select>
+
+</mapper>
