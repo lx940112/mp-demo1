@@ -21,7 +21,7 @@
     <druid.version>1.1.20</druid.version>
     <commons.lang.version>3.9</commons.lang.version>
     <guava.version>28.1-jre</guava.version>
-    <fastjson.version>1.2.60</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <shiro.version>1.4.2</shiro.version>
     <swagger.version>2.9.2</swagger.version>
     <freemarker.version>2.3.29</freemarker.version>
